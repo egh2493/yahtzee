@@ -1,0 +1,73 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300, 700);
+@import url(https://fonts.googleapis.com/css?family=Lobster);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700);
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #62eef9;
+  color: #0f8e98;
+
+}
+
+h1 {
+  font-family: 'Lobster', cursive;
+  font-size: 65px;
+}
+
+h3{
+  font-family: 'Roboto Slab', serif;
+  font-size: 25px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+a {
+  color: #0f8e98;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+td {
+  text-align: center;
+}
+.container {
+  width: 800px;
+}
+
+.scorecard {
+  position: relative;
+  margin: 0 auto;
+  padding: 10px 10px 10px;
+  width: 600px;
+  background: #ffffff;
+}
+
+input[type=button] {
+  padding: 0 10px;
+  height: 24px;
+  font-size: 12px;
+  color: #527881;
+  background: #ffffff;
+  border: 1px solid;
+  border-color: #b4ccce #b3c0c8 #9eb9c2;
+  border-radius: 16px;
+  outline: 0;
+}
+
+input[type=button]:hover:enabled {
+  border-color: #9eb9c2 #b3c0c8 #b4ccce;
+  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+input[type=button]:active:enabled {
+  background: #62eef9;
+  border-color: #9eb9c2 #b3c0c8 #b4ccce;
+  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+input[type=button]:disabled {
+  color:  #C0C0C0;
+}

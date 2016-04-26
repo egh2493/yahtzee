@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<!--Yahtzee
+		Written by Emily Huizenga
+		CSC 215
+		October 2015 -->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="yahtzee.css">
+	<title>Yahtzee!</title>
+	<script src="yahtzee.js">
+	</script>
+</head>
+
+<body onLoad="getPlayers();"><center>
+	<image src="title.png" width="480">
+		<div class="container">
+			<div class="scorecard">
+					<h3 name="rnd" id="rnd">Round 1</h3>
+					<p name="player" id="player">It's [name]'s Turn!</p>
+					<div name="playerbuttons" id="playerbuttons"></div>
+					<form name="pScores"><table width="330" height="220" border="0" cellpadding="5" cellspacing="1">
+					  <tr>
+					    <th>&nbsp;</th>
+					    <th>Score</th>
+					    <th>&nbsp;</th>
+					    <th>Score</th>
+					</tr>
+					  <tr>
+					    <td><input type="button" id="ones" name="buttons" value="Ones" onClick="saveScore('1score', this.id, true)"></td>
+					    <td name="pScores" id="1score">&nbsp;</td>
+					    <td ><input type="button" id="3k" name="buttons" value="3 of a Kind" onClick="saveScore('3kscore', this.id, false)"></td>
+					    <td name="pScores" id="3kscore">&nbsp;</td>
+					</tr>
+					  <tr>
+					    <td><input type="button" id="twos" name="buttons" value="Twos" onClick="saveScore('2score', this.id, true)"></td>
+					    <td name="pScores" id="2score">&nbsp;</td>
+					    <td><input type="button" id="FH" name="buttons" value="Full House" onClick="saveScore('FHscore', this.id, false)"></td>
+					    <td name="pScores" id="FHscore">&nbsp;</td>
+					</tr>
+					  <tr>
+					    <td><input type="button" id="threes" name="buttons" value="Threes" onClick="saveScore('3score', this.id, true)"></td>
+					    <td name="pScores" id="3score">&nbsp;</td>
+					    <td><input type="button" id="4k" name="buttons" value="Four of a Kind" onClick="saveScore('4kscore', this.id,false)"></td>
+					    <td name="pScores" id="4kscore">&nbsp;</td>
+					</tr>
+					  <tr>
+					    <td><input type="button" id="fours" name="buttons" value="Fours" onClick="saveScore('4score', this.id, true)"></td>
+					    <td name="pScores" id="4score">&nbsp;</td>
+					    <td><input type="button" id="ss" name="buttons" value="Small Straight" onClick="saveScore('SSscore', this.id, false)"></td>
+					    <td name="pScores" id="SSscore">&nbsp;</td>
+					</tr>
+					  <tr>
+					    <td><input type="button" id="fives" name="buttons" value="Fives" onClick="saveScore('5score', this.id, true)"></td>
+					    <td name="pScores" id="5score">&nbsp;</td>
+					    <td><input type="button" id="ls" name="buttons" value="Large Straight" onClick="saveScore('LSscore', this.id, false)"></td>
+					    <td name="pScores" id="LSscore">&nbsp;</td>
+					</tr>
+					  <tr>
+					    <td><input type="button" id="sixes" name="buttons" value="Sixes" onClick="saveScore('6score', this.id, true)"></td>
+					    <td name="pScores" id="6score">&nbsp;</td>
+					    <td><input type="button" id="YZ" name="buttons" value="Yahtzee!" onClick="saveScore('Yscore', this.id, false)"></td>
+					    <td name="pScores" id="Yscore">&nbsp;</td>
+					</tr>
+					  <tr>
+					    <td>BONUS!<!--input type="button" id="bonus" name="buttons" value="Bonus" onClick="saveScore('Bscore', this.id, false)"--></td>
+					    <td name="pScores" id="Bscore">&nbsp;</td>
+					    <td><input type="button" id="chance" name="buttons" value="Chance" onClick="saveScore('Cscore', this.id, false)"></td>
+					    <td name="pScores" id="Cscore">&nbsp;</td>
+					</tr>
+					<tr><td>Score:</td><td name="pScores" id="score">0</td></tr>
+					</table></form>
+					<table width="200" border="0" cellspacing="1" cellpadding="0">
+					<tr>Roll the Dice!</tr>
+					<tr>
+					  <td width="42"><img id="die1" src="dice.png" onclick="document.getElementById('box1').checked = !document.getElementById('box1').checked"/></td>
+					  <td width="42"><img id="die2" src="dice.png" onclick="document.getElementById('box2').checked = !document.getElementById('box2').checked"/></td>
+					  <td width="42"><img id="die3" src="dice.png" onclick="document.getElementById('box3').checked = !document.getElementById('box3').checked"/></td>
+					  <td width="42"><img id="die4" src="dice.png" onclick="document.getElementById('box4').checked = !document.getElementById('box4').checked"/></td>
+					  <td width="42"><img id="die5" src="dice.png" onclick="document.getElementById('box5').checked = !document.getElementById('box5').checked"/></td>
+					</tr>
+					<tr><form name="chkBx" id="chkBx">
+					  <td><input type="checkbox" name="freezeDie" id="box1"></td>
+					  <td><input type="checkbox" name="freezeDie" id="box2"></td>
+					  <td><input type="checkbox" name="freezeDie" id="box3"></td>
+					  <td><input type="checkbox" name="freezeDie" id="box4"></td>
+					  <td><input type="checkbox" name="freezeDie" id="box5"></td>
+					</form></tr>
+					<tr>
+					  <td id="rollCt" name="rollCt">Roll: &nbsp;</td><td colspan="4"><input type="button" id="roll" name="roll" value="Roll Dice" onClick="rollDice();"><input type="button" id="next" name="next" value="Change Turns" onClick="changeTurn();" disabled="true"></center></td>
+					</tr>
+					</table><br><br>
+					<a href=" " id="newGame" name="newGame">New Game</a>
+				</div>
+			</div>
+	</center>
+	</body>
+</html>
